@@ -1,0 +1,58 @@
+.profile{
+    width: 183px;
+    height: 183px;
+    border-radius: 50%;
+    background-image: url(https://th.bing.com/th/id/R.d8a40fc6da9e8232bd8054d4da49cb74?rik=xF3kla1zR1gueQ&riu=http%3a%2f%2fuploads1.wikiart.org%2fimages%2fchilde-hassam%2fpoppies-isles-of-shoals-03.jpg&ehk=jjH9QgtaqJ3SbnWXC4pfoCxEWIdIdjt3psW6oOcffUs%3d&risl=&pid=ImgRaw&r=0);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.notic{
+    width: 50px;
+    height: 50px;
+    background-color: #ce0e0e;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+    color: #fff;
+}
+table{
+    margin-top: 15px;
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 50%;
+}
+th{
+    background-color: #7ec0f7;
+    border: 1px solid;
+}
+tr{
+    background-color: #fff;
+    border: 1px solid;
+}
+td{
+    border: 1px solid;
+}
+button{
+    border: 1px solid #000;
+    background-color: #7ec0f7;
+    border-radius: 2px;
+    padding: 4px;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ce0e0e;
+}
+body{
+    background-color: #ffe3e3;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    cursor: pointer;
+}

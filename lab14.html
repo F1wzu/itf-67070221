@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylelab14.css">
+</head>
+<body>
+<center>
+    <h1>This is my website</h1>
+    <div id="pfp" class="profile">
+        <div class="notic">
+            <p>1</p>
+        </div>
+    </div>
+    <a href="https://www.instagram.com/f1wzu_x/"><h1 id="username">name, Hi!</h1></a>
+    <p><label>SET USERNAME : </label><input id="input" type="text"> <button onclick="setName()">SET</button></p>
+    <p><label>SET PROFILE PICTURE : </label><input id="inputpfp" type="text"> <button onclick="setImage()">SET</button></p>
+    <label>NAME : </label><input id="name" type="text"><label> PHONE : </label><input id="phone" type="text">
+    <button onclick="updateRow()">ADD</button>
+    <button onclick="saveCSV()">EXPORT</button>
+    <table id="table">
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+        </tr>
+    </table>
+</body>
+<script>
+    const username = document.getElementById("username");
+    const input = document.getElementById("input");
+    const profile = document.getElementById("pfp");
+    const inputpfp = document.getElementById("inputpfp");
+    const table = document.getElementById("table");
+    const name = document.getElementById("name");
+    const phone = document.getElementById("phone");
+
+    let count = 0;
+    var phonenumber = [];
+    const addBtn = document.getElementById("ADD");
+    const saveButton = document.getElementById("EXPORT");
+    console.log(saveButton.value)
+
+    function setName(){
+        username.textContent = input.value + ", Hi!";
+        input.value = "";
+    }
+    function setImage(){
+        pfp.style.backgroundImage = "url("+ inputpfp.value +")";
+    }
+    function updateRow(){
+    count += 1;
+    const row = document.createElement("tr");
+    const cellNo = document.createElement("td");
+    const cellName = document.createElement("td");
+    const cellTel = document.createElement("td");
+    cellNo.textContent = count;
+    cellName.textContent = document.getElementById("name").value;
+    cellTel.textContent = document.getElementById("phone").value;
+    row.appendChild(cellNo);
+    row.appendChild(cellName);
+    row.appendChild(cellTel);
+    const table = document.getElementById("table");
+    table.appendChild(row);
+    
+    let arr = [];
+    arr.cellNo(count);
+    arr.cellName(document.getElementById("name").value);
+    arr.cellPhone(document.getElementById("phone").value);
+    phonenumber.push(arr);
+    console.log(phonenumber);
+    
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+}
+    function saveCSV() {
+    const csvContent = phonenumber.map(row => row.join(",")).join("\n");
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const link = document.createElement("a");
+        const url = URL.createObjectURL(blob);
+        link.setAttribute("href", url);
+        link.setAttribute("download", "data.csv");
+        link.style.visibility = "hidden";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+}
+</script>
+</html>
